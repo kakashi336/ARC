@@ -34,39 +34,6 @@ import re
 
 
 #---------------------Start of functions-----------------------#
-"""
-c3f564a4.json
-This function takes a grid (Which contains a pattern and blank bits) and returns the same sized grid after 
-filling the blank bits with pattern. 
-
-1. Iterate over the whole input grid and check for blanks (black value)
-2. If black color is encountered, predict the pattern by checking the right diagonal color.
-3. Assign the black pixel with the predicted value.
-4. return the final grid.
-
-Summary of features used
-For all the tasks, I have used only Numpy, and no other libraries or any pip installs.
-Completed the task using numpy array indexing. 
-
-"""
-
-def solve_c3f564a4(x):
-    # Function to predict bit by checking its neighbour color bits
-    def predict_bit(indexof_bit):
-        #Check diagonal bits and return the same color code. 
-        if x[indexof_bit[0]-1][indexof_bit[1]+1] >0:
-            return x[indexof_bit[0]-1][indexof_bit[1]+1]
-        
-    
-    for i in range(x.shape[0]):
-        for j in range(x.shape[1]):
-            # Check for blanks and predict bit color.
-            if x[i][j]==0:
-                x[i][j]=predict_bit([i,j])
-    #Return final grid
-    return x
-
-# Tested the function with test-data and passed all the testcases
 
 """
 9f236235.json
@@ -197,6 +164,8 @@ def solve_6ecd11f4(x):
 
 # Tested the function with test-data and passed all the testcases
 
+
+# Solution for Training example c8cbb738.json
 """
 c8cbb738.json
 This function takes a grid (Which contains rectangular shapes) and returns a grid with 
@@ -214,7 +183,6 @@ For all the tasks, I have used only Numpy, and no other libraries or any pip ins
 Completed the task using numpy array indexing and slicing. 
 
 """
-# Solution for Training example c8cbb738.json
 def solve_c8cbb738(x):
     data = np.array(x)
     # Storing Colors and their occurences
@@ -276,6 +244,8 @@ def solve_c8cbb738(x):
         for n_coor in _sliceCoordinates(listOfCoordinates[key], dim_out):
             output_matrix[tuple(n_coor)] = key
     return output_matrix
+# Tested the function with test-data and passed all the testcases
+
 
 # Solution for Training example aabf363d.json
 """
@@ -305,12 +275,49 @@ def solve_aabf363d(x):
     x[x > 0] = colorEnd
     # Return O/p
     return x
+# Tested the function with test-data and passed all the testcases
+
+
+"""
+c3f564a4.json
+This function takes a grid (Which contains a pattern and blank bits) and returns the same sized grid after 
+filling the blank bits with pattern. 
+
+1. Iterate over the whole input grid and check for blanks (black value)
+2. If black color is encountered, predict the pattern by checking the right diagonal color.
+3. Assign the black pixel with the predicted value.
+4. return the final grid.
+
+Summary of features used
+For all the tasks, I have used only Numpy, and no other libraries or any pip installs.
+Completed the task using numpy array indexing. 
+
+"""
+
+def solve_c3f564a4(x):
+    # Function to predict bit by checking its neighbour color bits
+    def predict_bit(indexof_bit):
+        #Check diagonal bits and return the same color code. 
+        if x[indexof_bit[0]-1][indexof_bit[1]+1] >0:
+            return x[indexof_bit[0]-1][indexof_bit[1]+1]
+        
+    
+    for i in range(x.shape[0]):
+        for j in range(x.shape[1]):
+            # Check for blanks and predict bit color.
+            if x[i][j]==0:
+                x[i][j]=predict_bit([i,j])
+    #Return final grid
+    return x
+
+# Tested the function with test-data and passed all the testcases
 
 """
 Commonalities:
 1. Used np.shape function frequently to iterate through the array and get the shape for indexing 
     purpose
 2. Used calculated indexing to properly iterate and index variables
+
 """
 
 #----------------------- End of Functions-------------------------------#
