@@ -81,3 +81,10 @@ The input grid (size: (m,m)) consists of a small color grid of size (n,n) and pa
 a grid of size (n,n) after merging the colors with respective pattern (replace color with 0 if the pattern consists of black (color code=0)
 color pixel. 
 
+solve_c8cbb738(x)
+This function takes a grid (Which contains rectangular shapes) and returns a grid with 
+all the shapes fitted to the maximum dimension of all the rectangles.
+
+solve_aabf363d(x)
+This function takes a grid (Which contains output color of the figure at first column last row) and returns a grid with 
+the object drawn with the given color.
